@@ -25,6 +25,7 @@
         <tbody>
             @foreach (MilliganNathaniel413Assignment3.Models.Movie m in Model)
             {
+                //check if title is Independence Day-- if not, display as normal
                 @if (m.Title != "Independence Day")
                 {
                     @:<tr>
@@ -33,6 +34,7 @@
                         <td>@m.Year</td>
                         <td>@m.Director</td>
                         <td>@m.Rating</td>
+                        //show Yes if edited is true, or No if edited is null or false
                         @if (m.Edited ?? false)
                         {
                             @:<td>Yes</td>

@@ -8,6 +8,7 @@ namespace MilliganNathaniel413Assignment3.Models
 {
     public class Movie
     {
+        //The “Edited”, “Lent To”, and “Notes” fields are optional. All other fields must be entered.
         [Required]
         public string Category { get; set; }
         [Required]
@@ -18,8 +19,10 @@ namespace MilliganNathaniel413Assignment3.Models
         public string Director { get; set; }
         [Required]
         public string Rating { get; set; }
+        //bool? is nullable instead of bool which requires a true or false value
         public bool? Edited { get; set; }
         public string LentTo { get; set; }
+        //limited Notes length on front end
         public string Notes { get; set; }
     }
 }

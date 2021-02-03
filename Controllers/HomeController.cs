@@ -36,12 +36,16 @@ namespace MilliganNathaniel413Assignment3.Controllers
         [HttpPost]
         public IActionResult AddMovie(Movie newMovie)
         {
+            // adds new movie from form to temporary storage
             TempStorage.AddMovie(newMovie);
+
+            //passes temporary storage to MovieList view to display the movie list
             return View("MovieList", TempStorage.Movies);
         }
 
         public IActionResult MovieList()
         {
+            //passes temporary storage to MovieList view to display the movie list
             return View(TempStorage.Movies);
         }
 
