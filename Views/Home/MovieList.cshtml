@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "Movie List";
+}
+
+@model IEnumerable<MilliganNathaniel413Assignment3.Models.Movie>
+
+<div class="text-center">
+    <h1 class="display-4">Movie List</h1>
+</div>
+
+<div>
+    <table id="movies">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To:</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MilliganNathaniel413Assignment3.Models.Movie m in Model)
+            {
+                @if (m.Title != "Independence Day")
+                {
+                    @:<tr>
+                        <td>@m.Category</td>
+                        <td>@m.Title</td>
+                        <td>@m.Year</td>
+                        <td>@m.Director</td>
+                        <td>@m.Rating</td>
+                        @if (m.Edited ?? false)
+                        {
+                            @:<td>Yes</td>
+                        }
+                        else
+                        {
+                            @: <td>No</td>
+                        }
+                        <td>@m.LentTo</td>
+                        <td>@m.Notes</td>
+                    @:</tr>
+                }
+
+            }
+        </tbody>
+    </table>
+</div>
