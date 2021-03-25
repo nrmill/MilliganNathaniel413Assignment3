@@ -1,17 +1,18 @@
 ﻿@{
-    ViewBag.Title = "Add Movie";
+    ViewBag.Title = "Edit Movie";
 }
-
 @model Movie
 
+
 <div class="text-center">
-    <h1 class="display-4">Add a New Movie to the digital vault.</h1>
+    <h1 class="display-4">Edit a Movie</h1>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-4">
-            <form asp-action="AddMovie" method="post">
+            <form asp-action="EditMovie" method="post">
+                <input asp-for="MovieID" type="hidden" />
                 <div>
                     <label asp-for="Category">Category:</label>
                     <select asp-for="Category">
@@ -65,7 +66,7 @@
                     <input asp-for="Notes" maxlength="25" />
                 </div>
 
-                <button class="btn btn-primary" type="submit">Add Movie</button>
+                <button class="btn btn-primary" type="submit">Edit Movie</button>
 
                 <div asp-validation-summary="All"></div>
             </form>

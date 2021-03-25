@@ -2,7 +2,7 @@
     ViewBag.Title = "Movie List";
 }
 
-@model IEnumerable<MilliganNathaniel413Assignment3.Models.Movie>
+@model IEnumerable<Movie>
 
 <div class="text-center">
     <h1 class="display-4">Movie List</h1>
@@ -20,10 +20,12 @@
                 <th>Edited</th>
                 <th>Lent To:</th>
                 <th>Notes</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (MilliganNathaniel413Assignment3.Models.Movie m in Model)
+            @foreach (Movie m in Model)
             {
                 //check if title is Independence Day-- if not, display as normal
                 @if (m.Title != "Independence Day")
@@ -45,6 +47,19 @@
                         }
                         <td>@m.LentTo</td>
                         <td>@m.Notes</td>
+                        <td>
+                            <a asp-action="EditMovie" asp-route-movieID="@m.MovieID" class="btn btn-outline-secondary">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <form asp-action="DeleteMovie" method="post">
+                                <input type="hidden" name="movieID" value="@m.MovieID" />
+                                <button class="btn btn-danger" type="submit">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                            </form>
+                        </td>
                     @:</tr>
                 }
 

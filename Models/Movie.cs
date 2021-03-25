@@ -8,6 +8,9 @@ namespace MilliganNathaniel413Assignment3.Models
 {
     public class Movie
     {
+        [Key]
+        public int MovieID { get; set; }
+
         //The “Edited”, “Lent To”, and “Notes” fields are optional. All other fields must be entered.
         [Required]
         public string Category { get; set; }
@@ -24,5 +27,6 @@ namespace MilliganNathaniel413Assignment3.Models
         public string LentTo { get; set; }
         //limited Notes length on front end
         public string Notes { get; set; }
+
     }
 }
